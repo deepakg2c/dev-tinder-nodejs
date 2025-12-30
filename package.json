@@ -1,0 +1,17 @@
+{
+  "name": "dev-tinder-backend",
+  "version": "1.0.0",
+  "description": "dev tinder",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Deepak Mishra",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
