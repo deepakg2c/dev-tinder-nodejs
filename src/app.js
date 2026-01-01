@@ -6,6 +6,10 @@ app.get("/login", (req, res) => {
     res.send("this is login server");
 
 });
+app.post("/register", (req, res) => {
+    res.send("data savedddrr");
+
+});
 app.get("/register", (req, res) => {
     res.send("this is register page");
 
