@@ -1,24 +1,34 @@
 const express = require("express");
-
+const connectDB = require("./config/database")
 const app = express();
+const cookiesParser = require("cookie-parser")
+const authRoute = require("./route/auth")
+const authProfile = require("./route/profile")
 
-app.get("/login", (req, res) => {
-    res.send("this is login server");
 
+app.use(express.json());
+app.use(cookiesParser());
+
+app.use("/", authProfile);
+app.use("/", authRoute);
+
+
+
+connectDB().then(() => {
+    console.log("database connected")
+    app.listen(7777, () => {
+        console.log("🚀 Server running on port 1234");
+    });
+}).catch(err => {
+    console.log("database not connected")
 });
-app.post("/register", (req, res) => {
-    res.send("data savedddrr");
 
-});
-app.get("/register", (req, res) => {
-    res.send("this is register page");
 
-});
 
-app.get("/logout", (req, res) => {
-    res.send("this is logout");
-})
 
-app.listen(3333, () => {
-    console.log("server is running 3333")
-})
+
+
+
+
+
+
